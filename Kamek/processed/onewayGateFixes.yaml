@@ -1,0 +1,23 @@
+hooks:
+- branch_type: bl
+  name: FixedOpeningSound
+  src_addr_jpn: 2159019796
+  src_addr_jpn2: 2159019828
+  src_addr_ntsc: 2159021620
+  src_addr_ntsc2: 2159021652
+  src_addr_pal: 2159021588
+  src_addr_pal2: 2159021620
+  target_func: FixedOpeningSound
+  type: branch_insn
+- branch_type: bl
+  name: FixedShuttingSound
+  src_addr_jpn: 2159019864
+  src_addr_jpn2: 2159019896
+  src_addr_ntsc: 2159021688
+  src_addr_ntsc2: 2159021720
+  src_addr_pal: 2159021656
+  src_addr_pal2: 2159021688
+  target_func: FixedShuttingSound
+  type: branch_insn
+source_files:
+- ../src/onewayGateFixes.S

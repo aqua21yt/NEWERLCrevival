@@ -1,0 +1,6 @@
+---
+#New Actor - SMW T-Rex
+
+
+source_files: [../src/Trex.cpp]
+hooks: []

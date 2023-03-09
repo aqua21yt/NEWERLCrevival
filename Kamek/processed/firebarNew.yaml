@@ -1,0 +1,31 @@
+hooks:
+- name: NEWER_FIREBARBuild
+  src_addr_jpn: 2158967928
+  src_addr_jpn2: 2158967960
+  src_addr_ntsc: 2158969752
+  src_addr_ntsc2: 2158969784
+  src_addr_pal: 2158969720
+  src_addr_pal2: 2158969752
+  target_func: daGreaterFirebar_c::build()
+  type: add_func_pointer
+- name: NEWER_FIREBARSpriteFileInfo
+  src_addr_jpn: 2150738092
+  src_addr_jpn2: 2150738092
+  src_addr_ntsc: 2150738572
+  src_addr_ntsc2: 2150738572
+  src_addr_pal: &id001 2150739364
+  src_addr_pal2: *id001
+  target_func: FirebarsFileContents
+  type: add_func_pointer
+- addr_jpn: 2150675920
+  addr_jpn2: 2150675920
+  addr_ntsc: 2150676400
+  addr_ntsc2: 2150676400
+  addr_pal: &id002 2150677168
+  addr_pal2: *id002
+  data: 00BF 0000  00000000 00000000  00000000 00000000 00000100 00000100  0000 0000
+    0000 0000  0000 0000
+  name: UpdateNEWER_FIREBARSpriteInfo
+  type: patch
+source_files:
+- ../src/firebarNew.cpp

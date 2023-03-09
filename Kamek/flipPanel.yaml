@@ -1,0 +1,36 @@
+---
+#Replaces Actor 351 MINI_GAME_BALLOON (Sprite 411)
+
+
+source_files: [../src/flipPanel.cpp]
+hooks:
+  - name: FlipPanelBuild
+    type: add_func_pointer
+    src_addr_pal: 0x8096F220
+    target_func: 'daEnFlipPanel_c::build()'
+
+  - name: FlipPanelSpriteFileInfo
+    type: add_func_pointer
+    src_addr_pal: 0x8031b1b8
+    target_func: 'FlipPanelFileList'
+    # 0x8031AB4C + sprite num * 0x4 == offset
+
+
+  - name: UpdateFlipPanelSpriteInfo
+    type: patch
+    # 0x8030A340 + sprite num * 0x28 == offset
+    addr_pal: 0x8030e378
+    #      -ID- ----  -X Offs- -Y Offs-  -RectX1- -RectY1- -RectX2- -RectY2-  -1C- -1E- -20- -22-  Flag ----
+    data: '015F 0000  00000000 00000000  00000000 00000000 00000200 00000100  0000 0000 0000 0000  0000 0000'
+    
+  - name: LetFlipPanelsFlipWhenPlayerJumped
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x8005e71c
+    target_func: 'playerJumped'
+
+  - name: LetFlipPanelsFlipWhenPlayerSpins
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80147210
+    target_func: 'playerSpinned'

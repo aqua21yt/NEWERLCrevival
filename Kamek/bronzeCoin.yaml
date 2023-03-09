@@ -1,0 +1,24 @@
+---
+#Replaces Actor 205 DUMMY_DOOR (Sprite 421)
+
+
+source_files: [../src/bronzeCoin.cpp]
+hooks:
+  - name: BRONZE_COINBuild
+    type: add_func_pointer
+    src_addr_pal: 0x80958B58
+    target_func: 'dEventCoin_c::build()'
+
+  - name: BRONZE_COINSpriteFileInfo
+    type: add_func_pointer
+    src_addr_pal: 0x8031b1e0
+    target_func: 'BronzeCoinFileList'
+    # 0x8031AB4C + sprite num * 0x4 == offset
+
+
+  - name: UpdateBRONZE_COINSpriteInfo
+    type: patch
+    # 0x8030A340 + sprite num * 0x28 == offset
+    addr_pal: 0x8030e508
+    #      -ID- ----  -X Offs- -Y Offs-  -RectX1- -RectY1- -RectX2- -RectY2-  -1C- -1E- -20- -22-  Flag ----
+    data: '00CD 0000  00000000 00000000  00000000 00000000 00000100 00000100  0000 0000 0000 0000  0000 0000'

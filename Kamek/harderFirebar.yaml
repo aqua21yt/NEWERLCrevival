@@ -1,0 +1,24 @@
+---
+#Replaces Actor 162 EN_PUKUCOIN (Sprite 116)
+
+
+source_files: [../src/harderFirebar.cpp]
+hooks:
+  - name: BETTER_FIREBARBuild
+    type: add_func_pointer
+    src_addr_pal: 0x80B03618
+    target_func: 'daEnNewBar_c::build()'
+
+  - name: BETTER_FIREBARSpriteFileInfo
+    type: add_func_pointer
+    src_addr_pal: 0x8031ad1c
+    target_func: 'FirebarssArcFilesList'
+    # 0x8031AB4C + sprite num * 0x4 == offset
+
+
+  - name: UpdateBETTER_FIREBARSpriteInfo
+    type: patch
+    # 0x8030A340 + sprite num * 0x28 == offset
+    addr_pal: 0x8030b560
+    #      -ID- ----  -X Offs- -Y Offs-  -RectX1- -RectY1- -RectX2- -RectY2-  -1C- -1E- -20- -22-  Flag ----
+    data: '00A2 0000  00000000 00000000  00000000 00000000 00000100 00000100  0000 0000 0000 0000  0000 0000'

@@ -1,0 +1,31 @@
+hooks:
+- name: BEANSTALKBuild
+  src_addr_jpn: 2159009876
+  src_addr_jpn2: 2159009908
+  src_addr_ntsc: 2159011700
+  src_addr_ntsc2: 2159011732
+  src_addr_pal: 2159011668
+  src_addr_pal2: 2159011700
+  target_func: daLeafBean_c::build()
+  type: add_func_pointer
+- name: BEANSTALKSpriteFileInfo
+  src_addr_jpn: 2150738324
+  src_addr_jpn2: 2150738324
+  src_addr_ntsc: 2150738804
+  src_addr_ntsc2: 2150738804
+  src_addr_pal: &id001 2150739596
+  src_addr_pal2: *id001
+  target_func: BeanStalksSARCList
+  type: add_func_pointer
+- addr_jpn: 2150678240
+  addr_jpn2: 2150678240
+  addr_ntsc: 2150678720
+  addr_ntsc2: 2150678720
+  addr_pal: &id002 2150679488
+  addr_pal2: *id002
+  data: 0201 0000  00000000 00000000  00000000 00000000 00000100 00000100  0000 0000
+    0000 0000  0000 0000
+  name: UpdateBEANSTALKSpriteInfo
+  type: patch
+source_files:
+- ../src/beanStalk.cpp

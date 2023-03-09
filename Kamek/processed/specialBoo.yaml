@@ -1,0 +1,31 @@
+hooks:
+- name: SPECIAL_BOOBuild
+  src_addr_jpn: 2159033584
+  src_addr_jpn2: 2159033616
+  src_addr_ntsc: 2159035408
+  src_addr_ntsc2: 2159035440
+  src_addr_pal: 2159035376
+  src_addr_pal2: 2159035408
+  target_func: dGreaterBoo_c::build()
+  type: add_func_pointer
+- name: SPECIAL_BOOSpriteFileInfo
+  src_addr_jpn: 2150738640
+  src_addr_jpn2: 2150738640
+  src_addr_ntsc: 2150739120
+  src_addr_ntsc2: 2150739120
+  src_addr_pal: &id001 2150739912
+  src_addr_pal2: *id001
+  target_func: NewBoosFileList
+  type: add_func_pointer
+- addr_jpn: 2150681400
+  addr_jpn2: 2150681400
+  addr_ntsc: 2150681880
+  addr_ntsc2: 2150681880
+  addr_pal: &id002 2150682648
+  addr_pal2: *id002
+  data: 01E8 0000  00000000 00000000  00000000 00000000 00000100 00000100  0000 0000
+    0000 0000  0000 0000
+  name: UpdateSPECIAL_BOOSpriteInfo
+  type: patch
+source_files:
+- ../src/specialBoo.cpp

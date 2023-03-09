@@ -1,0 +1,31 @@
+hooks:
+- name: GOOMBA_TOWERBuild
+  src_addr_jpn: 2157345060
+  src_addr_jpn2: 2157345076
+  src_addr_ntsc: &id001 2157346876
+  src_addr_ntsc2: 2157346892
+  src_addr_pal: *id001
+  src_addr_pal2: 2157346892
+  target_func: daEnGoombaTower_c::build()
+  type: add_func_pointer
+- name: GOOMBA_TOWERSpriteFileInfo
+  src_addr_jpn: 2150738252
+  src_addr_jpn2: 2150738252
+  src_addr_ntsc: 2150738732
+  src_addr_ntsc2: 2150738732
+  src_addr_pal: &id002 2150739524
+  src_addr_pal2: *id002
+  target_func: GoombaTowerFileList
+  type: add_func_pointer
+- addr_jpn: 2150677520
+  addr_jpn2: 2150677520
+  addr_ntsc: 2150678000
+  addr_ntsc2: 2150678000
+  addr_pal: &id003 2150678768
+  addr_pal2: *id003
+  data: 01FD 0000  00000000 00000000  00000000 00000000 00000100 00000100  0000 0000
+    0000 0000  0000 0000
+  name: UpdateGOOMBA_TOWERSpriteInfo
+  type: patch
+source_files:
+- ../src/goombaTower.cpp

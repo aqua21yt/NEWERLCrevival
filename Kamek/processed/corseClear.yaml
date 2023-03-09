@@ -1,0 +1,23 @@
+hooks:
+- branch_type: b
+  name: DutchCorseClearBrlyt
+  src_addr_jpn: &id001 2150931296
+  src_addr_jpn2: *id001
+  src_addr_ntsc: &id002 2150931296
+  src_addr_ntsc2: *id002
+  src_addr_pal: 2155322080
+  src_addr_pal2: 2155322144
+  target_func: DutchCorseClearBrlyt
+  type: branch_insn
+- branch_type: b
+  name: DutchCorseClearBrlan
+  src_addr_jpn: *id001
+  src_addr_jpn2: *id001
+  src_addr_ntsc: *id002
+  src_addr_ntsc2: *id002
+  src_addr_pal: 2155322260
+  src_addr_pal2: 2155322324
+  target_func: DutchCorseClearBrlan
+  type: branch_insn
+source_files:
+- ../src/corseClear.S

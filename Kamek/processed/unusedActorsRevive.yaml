@@ -1,0 +1,11 @@
+hooks:
+- addr_jpn: 2157443828
+  addr_jpn2: 2157443844
+  addr_ntsc: &id001 2157445644
+  addr_ntsc2: 2157445660
+  addr_pal: *id001
+  addr_pal2: 2157445660
+  data: 0230BD58 0000024F
+  name: WaterLiftRestore
+  type: patch
+source_files: []

@@ -1,0 +1,31 @@
+hooks:
+- name: WarpBoxBuild
+  src_addr_jpn: 2157342980
+  src_addr_jpn2: 2157342996
+  src_addr_ntsc: &id001 2157344796
+  src_addr_ntsc2: 2157344812
+  src_addr_pal: *id001
+  src_addr_pal2: 2157344812
+  target_func: daEnWarpBox_c::build()
+  type: add_func_pointer
+- name: WarpBoxSpriteFileInfo
+  src_addr_jpn: 2150737608
+  src_addr_jpn2: 2150737608
+  src_addr_ntsc: 2150738088
+  src_addr_ntsc2: 2150738088
+  src_addr_pal: &id002 2150738880
+  src_addr_pal2: *id002
+  target_func: WarpBoxFileList
+  type: add_func_pointer
+- addr_jpn: 2150671080
+  addr_jpn2: 2150671080
+  addr_ntsc: 2150671560
+  addr_ntsc2: 2150671560
+  addr_pal: &id003 2150672328
+  addr_pal2: *id003
+  data: 01B3 0000  00000008 00000008  00000000 00000000 00000100 00000100  0000 0000
+    0000 0000  0000 0000
+  name: UpdateWarpBoxSpriteInfo
+  type: patch
+source_files:
+- ../src/warpBox.cpp

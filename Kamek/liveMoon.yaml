@@ -1,0 +1,6 @@
+---
+#Replaces Actor 162 EN_PUKUCOIN (Sprite 116)
+
+
+source_files: [../src/liveMoon.cpp]
+hooks: []

@@ -1,0 +1,16 @@
+---
+source_files: [../src/hardMode.S]
+hooks:
+
+
+  - name: OneHitKill
+    type: branch_insn
+    branch_type: bl
+    src_addr_pal: 0x801465DC
+    target_func: 'OneHitKill'
+
+  # - name: TimerAdjustments #Removed due to Mullkaw wanting it to be removed (duh)
+  #   type: branch_insn
+  #   branch_type: bl
+  #   src_addr_pal: 0x800E3AB8
+  #   target_func: 'TimerAdjustments'

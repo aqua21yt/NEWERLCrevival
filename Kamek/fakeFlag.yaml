@@ -1,0 +1,6 @@
+---
+#New Actor - Fake Objects
+
+
+source_files: [../src/fakeFlag.cpp]
+hooks: []

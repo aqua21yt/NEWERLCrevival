@@ -1,0 +1,18 @@
+source_files: []
+hooks:
+# The default save file also started you out with 3 lives instead of 5, so let's recreate that too
+- name: SetDefaultLivesTo99
+  type: patch
+  addr_pal: 0x800CE05C
+  data: '38A00063'
+
+# Also, let's make continues give you 3 lives instead of 5 to be consistent
+- name: Show99LivesOnContinue
+  type: patch
+  addr_pal: 0x807785CC
+  data: '2C000063'
+
+- name: Give99LivesOnContinue
+  type: patch
+  addr_pal: 0x807786DC
+  data: '3B800063'

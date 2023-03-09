@@ -1,0 +1,15 @@
+---
+source_files: [../src/onewayGateFixes.S]
+hooks:
+  - name: FixedOpeningSound
+    type: branch_insn
+    branch_type: bl
+    src_addr_pal: 0x80B00E14
+    target_func: 'FixedOpeningSound'
+
+  - name: FixedShuttingSound
+    type: branch_insn
+    branch_type: bl
+    src_addr_pal: 0x80B00E58
+    target_func: 'FixedShuttingSound'
+#ORIGINAL AND MADE BY WALID

@@ -1,0 +1,36 @@
+---
+#Replaces Actor 162 EN_PUKUCOIN (Sprite 116)
+
+
+source_files: [../src/greenRing.cpp]
+hooks:
+  - name: GREEN_RINGBuild
+    type: add_func_pointer
+    src_addr_pal: 0x80B03618
+    target_func: 'daGreenRing_c::build()'
+
+  - name: GREEN_RINGSpriteFileInfo
+    type: add_func_pointer
+    src_addr_pal: 0x8031ad1c
+    target_func: 'GreenRingAndCoinFileList'
+    # 0x8031AB4C + sprite num * 0x4 == offset
+
+
+  - name: UpdateGREEN_RINGSpriteInfo
+    type: patch
+    # 0x8030A340 + sprite num * 0x28 == offset
+    addr_pal: 0x8030b560
+    #      -ID- ----  -X Offs- -Y Offs-  -RectX1- -RectY1- -RectX2- -RectY2-  -1C- -1E- -20- -22-  Flag ----
+    data: '00A2 0000  00000000 00000000  00000000 00000000 00000200 00000300  0000 0000 0000 0000  0000 0000'
+    
+  - name: GREEN_COINBuild
+    type: add_func_pointer
+    src_addr_pal: 0x80955350
+    target_func: 'daGreenCoin_c::build()'
+
+  - name: UpdateGREEN_COINSpriteInfo
+    type: patch
+    # 0x8030A340 + sprite num * 0x28 == offset
+    addr_pal: 0x8030ee68
+    #      -ID- ----  -X Offs- -Y Offs-  -RectX1- -RectY1- -RectX2- -RectY2-  -1C- -1E- -20- -22-  Flag ----
+    data: '0113 0000  00000000 00000000  00000000 00000000 00000100 00000100  0000 0000 0000 0000  0000 0000'

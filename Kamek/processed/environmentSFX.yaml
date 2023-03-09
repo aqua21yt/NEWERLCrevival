@@ -1,0 +1,12 @@
+hooks:
+- name: NewSoundSpawnerBuild
+  src_addr_jpn: 2159009876
+  src_addr_jpn2: 2159009908
+  src_addr_ntsc: 2159011700
+  src_addr_ntsc2: 2159011732
+  src_addr_pal: 2159011668
+  src_addr_pal2: 2159011700
+  target_func: daMusicH::build()
+  type: add_func_pointer
+source_files:
+- ../src/environmentSFX.cpp

@@ -1,0 +1,24 @@
+---
+#Replaces Actor 509 AC_LIFT_BOSS_REMOCON_SEESAW (Sprite 190)
+
+
+source_files: [../src/goombaTower.cpp]
+hooks:
+  - name: GOOMBA_TOWERBuild
+    type: add_func_pointer
+    src_addr_pal: 0x8096803C
+    target_func: 'daEnGoombaTower_c::build()'
+
+  - name: GOOMBA_TOWERSpriteFileInfo
+    type: add_func_pointer
+    src_addr_pal: 0x8031ae44
+    target_func: 'GoombaTowerFileList'
+    # 0x8031AB4C + sprite num * 0x4 == offset
+
+
+  - name: UpdateGOOMBA_TOWERSpriteInfo
+    type: patch
+    # 0x8030A340 + sprite num * 0x28 == offset
+    addr_pal: 0x8030c0f0
+    #      -ID- ----  -X Offs- -Y Offs-  -RectX1- -RectY1- -RectX2- -RectY2-  -1C- -1E- -20- -22-  Flag ----
+    data: '01FD 0000  00000000 00000000  00000000 00000000 00000100 00000100  0000 0000 0000 0000  0000 0000'

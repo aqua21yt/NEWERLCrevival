@@ -1,0 +1,31 @@
+hooks:
+- name: MEGA_COINBuild
+  src_addr_jpn: 2159084704
+  src_addr_jpn2: 2159084736
+  src_addr_ntsc: 2159086528
+  src_addr_ntsc2: 2159086560
+  src_addr_pal: 2159086496
+  src_addr_pal2: 2159086528
+  target_func: daBigCoin_c::build()
+  type: add_func_pointer
+- name: MEGA_COINSpriteFileInfo
+  src_addr_jpn: 2150738064
+  src_addr_jpn2: 2150738064
+  src_addr_ntsc: 2150738544
+  src_addr_ntsc2: 2150738544
+  src_addr_pal: &id001 2150739336
+  src_addr_pal2: *id001
+  target_func: megaCoinSarcList
+  type: add_func_pointer
+- addr_jpn: 2150675640
+  addr_jpn2: 2150675640
+  addr_ntsc: 2150676120
+  addr_ntsc2: 2150676120
+  addr_pal: &id002 2150676888
+  addr_pal2: *id002
+  data: 00BC 0000  00000000 00000000  00000000 00000000 00000100 00000100  0000 0000
+    0000 0000  0000 0000
+  name: UpdateMEGA_COINSpriteInfo
+  type: patch
+source_files:
+- ../src/megaCoin.cpp

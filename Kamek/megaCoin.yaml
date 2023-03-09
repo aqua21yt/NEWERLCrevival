@@ -1,0 +1,24 @@
+---
+#Replaces Actor 188 EN_YAJIRUSHI (Sprite 143)
+
+
+source_files: [../src/megaCoin.cpp]
+hooks:
+  - name: MEGA_COINBuild
+    type: add_func_pointer
+    src_addr_pal: 0x80B10BA0
+    target_func: 'daBigCoin_c::build()'
+
+  - name: MEGA_COINSpriteFileInfo
+    type: add_func_pointer
+    src_addr_pal: 0x8031ad88
+    target_func: 'megaCoinSarcList'
+    # 0x8031AB4C + sprite num * 0x4 == offset
+
+
+  - name: UpdateMEGA_COINSpriteInfo
+    type: patch
+    # 0x8030A340 + sprite num * 0x28 == offset
+    addr_pal: 0x8030b998
+    #      -ID- ----  -X Offs- -Y Offs-  -RectX1- -RectY1- -RectX2- -RectY2-  -1C- -1E- -20- -22-  Flag ----
+    data: '00BC 0000  00000000 00000000  00000000 00000000 00000100 00000100  0000 0000 0000 0000  0000 0000'

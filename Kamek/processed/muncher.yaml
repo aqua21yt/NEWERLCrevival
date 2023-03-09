@@ -1,0 +1,21 @@
+hooks:
+- name: MuncherBuild
+  src_addr_jpn: 2158863656
+  src_addr_jpn2: 2158863688
+  src_addr_ntsc: 2158865480
+  src_addr_ntsc2: 2158865512
+  src_addr_pal: 2158865448
+  src_addr_pal2: 2158865480
+  target_func: dMuncher_c::build()
+  type: add_func_pointer
+- name: MuncherSpriteFileInfo
+  src_addr_jpn: 2150738860
+  src_addr_jpn2: 2150738860
+  src_addr_ntsc: 2150739340
+  src_addr_ntsc2: 2150739340
+  src_addr_pal: &id001 2150740132
+  src_addr_pal2: *id001
+  target_func: MuncherArcNameList
+  type: add_func_pointer
+source_files:
+- ../src/muncher.cpp

@@ -1,0 +1,6 @@
+---
+#New Actor - Better Signboard
+
+
+source_files: [../src/arrowImproved.cpp]
+hooks: []
