@@ -1,6 +1,0 @@
----
-#New Actor - Ice Bones
-
-
-source_files: [../src/iceBones.cpp]
-hooks: []

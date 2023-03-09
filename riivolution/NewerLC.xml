@@ -1,0 +1,176 @@
+<wiidisc version="1" shiftfiles="true" root="/NewerLC" log="true">
+	<id game="SMN">
+		<region type="P"/>
+		<region type="E"/>
+		<region type="J"/>
+	</id>
+	<options>
+		<section name="Newer Luigi Country">
+			<option name="Game" id="luigicore" default="1">
+				<choice name="Enabled"><patch id="luigicore"/></choice>
+			</option>
+		</section>
+	</options>
+	<patch id="luigicore">
+		 <savegame external="/save/{$__gameid}{$__region}" clone="false" />
+		<folder external="Tilesets" disc="/Stage/Texture" create="true" />
+		<!--folder external="TitleReplay" disc="/Replay/title" create="true" -->
+		<folder external="BGs" disc="/Object" create="true" />
+		<folder external="SpriteTex" disc="/Object" create="true" />
+		<folder external="Layouts" disc="/Layout" create="true" />
+		<folder external="Layouts/DU" disc="/EU/NedEU/Layout/corseClear" create="true" />
+		<folder external="Music" disc="/Sound/new" create="true" />
+		<folder external="Music/sfx" disc="/Sound/new/sfx" create="true" />
+		<folder external="Music/stream" disc="/Sound/stream" create="true" />
+		<folder external="Music/rsar" disc="/Sound" />
+		<folder external="Font/Others" disc="/EU/EngEU/Font" />
+		<folder external="Font/Others" disc="/EU/FraEU/Font" />
+		<folder external="Font/Others" disc="/EU/SpaEU/Font" />
+		<folder external="Font/Others" disc="/EU/ItaEU/Font" />
+		<folder external="Font/Others" disc="/EU/GerEU/Font" />
+		<folder external="Font/Others" disc="/EU/NedEU/Font" create="true" />
+		<folder external="Font/Others" disc="/US/EngUS/Font" />
+		<folder external="Font/Others" disc="/US/FraUS/Font" />
+		<folder external="Font/Others" disc="/US/SpaUS/Font" />
+		<folder external="Font/JP" disc="/JP/Font" />
+		<folder external="Message/EN" disc="/EU/EngEU/Message" />
+		<folder external="Message/FR" disc="/EU/FraEU/Message" />
+		<folder external="Message/SP" disc="/EU/SpaEU/Message" />
+		<folder external="Message/IT" disc="/EU/ItaEU/Message" />
+		<folder external="Message/GE" disc="/EU/GerEU/Message" />
+		<folder external="Message/DU" disc="/EU/NedEU/Message" create="true" />
+		<folder external="Message/EN" disc="/US/EngUS/Message" />
+		<folder external="Message/FR" disc="/US/FraUS/Message" />
+		<folder external="Message/SP" disc="/US/SpaUS/Message" />
+		<folder external="Message/JP" disc="/JP/Message" />
+		<folder external="Message/StaffRollDU" disc="/EU/NedEU/staffroll" create="true" />
+		<folder external="NewerRes" disc="/NewerRes" create="true" />
+		<folder external="LevelSamples" disc="/LevelSamples" create="true" />
+		<folder external="Others" />
+		<folder external="Others{$__region}" />
+		<folder external="Maps" disc="/Maps" create="true" />
+		<folder external="Maps/Texture" disc="/Maps" create="true" />
+		<folder external="Stages" disc="/Stage" create="true" />
+		
+		<!-- Save name change -->
+		<!--PAL--><memory offset="0x802F148C" value="53504C4C576969" original="7769696D6A3264" />
+		<!--NTSC--><memory offset="0x802F118C" value="53504C4C576969" original="7769696D6A3264" />
+		<!--JPN--><memory offset="0x802F0FAC" value="53504C4C576969" original="7769696D6A3264" />
+		
+		<!-- Inject Newer loader -->
+		<!--PAL--><memory offset="0x80328478" value="80001800" original="8015BC60" />
+		<!--NTSC--><memory offset="0x80328130" value="80001800" original="8015BB20" />
+		<!--JPN--><memory offset="0x80327E98" value="80001800" original="8015B930" />
+
+		<!-- Expand ArchiveHeap -->
+		<!--PAL--><memory offset="0x800E4A84" value="3C600140" original="3C600120" />
+		<!--NTSC--><memory offset="0x800E4994" value="3C600140" original="3C600120" />
+		<!--JPN--><memory offset="0x800E4914" value="3C600140" original="3C600120" />
+
+		<!-- Expand 2DHeap -->
+		<!--PAL--><memory offset="0x800B64EC" value="3C800032" original="3C800030" />
+		<!--NTSC--><memory offset="0x800B649C" value="3C800032" original="3C800030" />
+		<!--JPN--><memory offset="0x800B641C" value="3C800032" original="3C800030" />
+
+		<!-- Force non-Japanese font -->
+		<!--PAL--><memory offset="0x801B0204" value="38000000" original="5400FFFE" />
+		<!--NTSC--><memory offset="0x801B00C4" value="38000000" original="5400FFFE" />
+		<!--JPN--><memory offset="0x801AFED4" value="38000000" original="5400FFFE" />
+
+		<!-- Title screen fixes -->
+		<!--PAL--><memory offset="0x8015D850" value="4E800020" original="38600000" />
+		<!--NTSC--><memory offset="0x8015D710" value="4E800020" original="38600000" />
+		<!--JPN--><memory offset="0x8015D520" value="4E800020" original="38600000" />
+
+		<!-- Disable debug key sequence -->
+		<!--PAL--><memory offset="0x800E4E84" value="38600000" original="3863330C" />
+		<!--NTSC--><memory offset="0x800E4D70" value="38600000" original="3863300C" />
+		<!--JPN--><memory offset="0x800E4CF0" value="38600000" original="38632E2C" />
+
+		<!-- Flutter Animation Fixing -->
+		<!--PAL--><memory offset="0x802F173C" value="3F800000" original="3CF5C28F" />
+		<!--NTSC--><memory offset="0x802F143C" value="3F800000" original="3CF5C28F" />
+		<!--JPN--><memory offset="0x802F125C" value="3F800000" original="3CF5C28F" />
+
+		<!-- Add Dutch BMG to PAL -->
+		<!--PAL--><memory offset="0x800B46AC" value="4BFFFF85" original="4BFFFF55" />
+		<!--PAL--><memory offset="0x800B46D4" value="482949C4" original="7FE3FB78" />
+		<!--PAL--><memory offset="0x80349098" value="2C000006" />
+		<!--PAL--><memory offset="0x8034909C" value="4182000C" />
+		<!--PAL--><memory offset="0x803490A0" value="7FE3FB78" />
+		<!--PAL--><memory offset="0x803490A4" value="4BD6B634" />
+		<!--PAL--><memory offset="0x803490A8" value="7FE3FB78" />
+		<!--PAL--><memory offset="0x803490AC" value="3C808034" />
+		<!--PAL--><memory offset="0x803490B0" value="608490C0" />
+		<!--PAL--><memory offset="0x803490B4" value="38A00063" />
+		<!--PAL--><memory offset="0x803490B8" value="4bf98CA1" />
+		<!--PAL--><memory offset="0x803490BC" value="4BD6B678" />
+		<!--PAL--><memory offset="0x803490C0" value="4E656445" />
+		<!--PAL--><memory offset="0x803490C4" value="552F0000" />
+		
+		<!-- Weegee Physics -->
+		<!--memory offset="0x802F143C" value="3F800000" original="3CF5C28F" /-->
+		<!--memory offset="0x802EEEF0" value="3FD00000" original="3FC00000" /-->
+		<!--memory offset="0x802EEEF4" value="40200000" original="40100000" /-->
+		<!--memory offset="0x802EEEF8" value="40500000" original="40400000" /-->
+		<!--memory offset="0x802EEEFC" value="3CA00000" original="3D0F5C29" /-->
+		<!--memory offset="0x802EEF00" value="3D000000" original="3D4CCCCD" /-->
+		<!--memory offset="0x802EEF04" value="3D500000" original="3D8F5C29" /-->
+		<!--memory offset="0x802f563c" value="BD000000" original="be800000" /-->
+		<!--memory offset="0x802f564c" value="bdc00000" original="bE800000" /-->
+		<!--memory offset="0x802f5658" value="be600000" original="bE9EB852" /-->
+		<!--memory offset="0x802f143c" valuefile="physics/phys_run" /-->
+		<!--memory offset="0x802EEEF0" valuefile="physics/phys_jump" /-->
+		
+		<!-- Weegee Physics NTSC -->
+			<!-- ??? 			--> <memory offset="0x802F143C" value="3F800000" original="3CF5C28F" />
+			<!-- Walk Speed		--> <memory offset="0x802EEEF0" value="3fd00000" original="3FC00000" />
+			<!-- ???			--> <memory offset="0x802EEEF4" value="40200000" original="40100000" />
+			<!-- Dash Speed		--> <memory offset="0x802EEEF8" value="40500000" original="40400000" />
+			<!-- ???			--> <memory offset="0x802EEEFC" value="3CA00000" original="3D0F5C29" />
+			<!-- ???			--> <memory offset="0x802EEF00" value="3D000000" original="3D4CCCCD" />
+			<!-- ???			--> <memory offset="0x802EEF04" value="3D500000" original="3D8F5C29" />
+			<!-- Jump Height	--> <memory offset="0x802f5648" value="bd52e147" original="bd75c28f" />
+			<!-- Hover			--> <memory offset="0x802f5654" value="bd61eb85" original="bda3d70a" />
+			<!-- Fall Speed	Hold--> <memory offset="0x802f5658" value="be700000" original="be9eb852" />
+			<!-- Traction		--> <memory offset="0x802f55b8" value="3d4ccccd" original="3df5c28f" />
+			<!-- Traction		--> <memory offset="0x802f55b8" value="3d4ccccd" original="3df5c28f" />
+			<!-- Slow Down Fall	--> <memory offset="0x8042B864" value="c0634003" original="c0800000" />
+			<!--memory offset="0x802f143c" valuefile="physics/phys_run" /-->
+
+		<!-- Weegee Physics PAL -->
+			<!-- Weegee Physics 2 -->
+			<!-- ??? 			--> <memory offset="0x802F173C" value="3F800000" original="3CF5C28F" />
+			<!-- Walk Speed		--> <memory offset="0x802EF1F0" value="3fd00000" original="3FC00000" />
+			<!-- ???			--> <memory offset="0x802EF1F4" value="40200000" original="40100000" />
+			<!-- Dash Speed	    --> <memory offset="0x802EF1F8" value="40500000" original="40400000" />
+			<!-- ???			--> <memory offset="0x802EF1FC" value="3CA00000" original="3D0F5C29" />
+			<!-- ???			--> <memory offset="0x802EF200" value="3D000000" original="3D4CCCCD" />
+			<!-- ???			--> <memory offset="0x802EF204" value="3D500000" original="3D8F5C29" />
+			<!-- Jump Height	--> <memory offset="0x802F5948" value="bd52e147" original="bd75c28f" />
+			<!-- Hover			--> <memory offset="0x802F5954" value="bd61eb85" original="bda3d70a" />
+			<!-- Fall Speed	Hold--> <memory offset="0x802F5958" value="be700000" original="be9eb852" />
+			<!-- Traction		--> <memory offset="0x802F58B8" value="3d4ccccd" original="3df5c28f" />
+			<!-- Slow Down Fall --> <memory offset="0x8042BB44" value="c0634003" original="c0800000" />
+			<!--memory offset="0x802f143c" valuefile="physics/phys_run" /-->
+
+		<!-- Weegee Physics JPN -->
+			<!-- Weegee Physics 2 -->
+			<!-- ??? 			--> <memory offset="0x802F125C" value="3F800000" original="3CF5C28F" />
+			<!-- Walk Speed		--> <memory offset="0x802EED10" value="3fd00000" original="3FC00000" />
+			<!-- ??? 			--> <memory offset="0x802EED14" value="40200000" original="40100000" />
+			<!-- Dash Speed		--> <memory offset="0x802EED18" value="40500000" original="40400000" />
+			<!-- ??? 			--> <memory offset="0x802EED1C" value="3CA00000" original="3D0F5C29" />
+			<!-- ??? 			--> <memory offset="0x802EED20" value="3D000000" original="3D4CCCCD" />
+			<!-- ??? 			--> <memory offset="0x802EED24" value="3D500000" original="3D8F5C29" />
+			<!-- Jump Height	--> <memory offset="0x802F5468" value="bd52e147" original="bd75c28f" />
+			<!-- Hover			--> <memory offset="0x802F5474" value="bd61eb85" original="bda3d70a" />
+			<!-- Fall Speed	Hold--> <memory offset="0x802F5478" value="be700000" original="be9eb852" />
+			<!-- Traction		--> <memory offset="0x802F53D8" value="3d4ccccd" original="3df5c28f" />
+			<!-- Slow Down Fall --> <memory offset="0x8042B584" value="c0634003" original="c0800000" />
+			<!--memory offset="0x802f143c" valuefile="physics/phys_run" /-->
+			
+		<!-- Common -->
+		<memory offset="0x80001800" valuefile="Loader.bin" />
+	</patch>
+</wiidisc>

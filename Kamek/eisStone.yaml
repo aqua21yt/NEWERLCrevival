@@ -1,6 +1,0 @@
----
-#New Actor - Eisstone (SMW Harder Bouldergeist)
-
-
-source_files: [../src/eisStone.cpp]
-hooks: []

@@ -1,6 +1,0 @@
----
-#New Actor - Brozstormer
-
-
-source_files: [../src/bossBrozstormer.cpp]
-hooks: []

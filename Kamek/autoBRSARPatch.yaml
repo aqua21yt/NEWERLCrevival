@@ -1,9 +1,0 @@
----
-source_files: [../src/autoBRSARPatch.S]
-hooks:
-  - name: AutoBRSAR
-    type: branch_insn
-    branch_type: bl
-    src_addr_pal: 0x802694F0
-    target_func: 'AutoBRSAR'
-
